@@ -202,7 +202,7 @@ const Experience = ({ onClose }) => {
             >
               <div style={styles.logoBox}>
                 <img
-                  src="/spouveup.jpeg"
+                  src={`${process.env.PUBLIC_URL}/spouveup.jpeg`}
                   alt="Spoveup Logo"
                   width="100%"
                   height="100%"

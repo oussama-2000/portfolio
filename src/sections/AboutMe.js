@@ -182,7 +182,7 @@ const AboutMe = ({ onClose }) => {
             {/* Right Column */}
             <div style={{ textAlign: "center",gridArea:"image" }}>
               <div style={styles.photoPlaceholder}>
-                <img src="/me.jpg" alt="profile" width="100%" />
+                <img src={`${process.env.PUBLIC_URL}/me.jpg`} alt="profile" width="100%" />
               </div>
               <div style={styles.infoRow}>
                 <span style={styles.label}>Name: </span> Oussama Amkhou

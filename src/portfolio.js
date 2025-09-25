@@ -82,17 +82,17 @@ export default function PortfolioMap() {
   return (
     <div className="map">
       {/* Background Music */}
-      <audio ref={audioRef} src="/Cobblestone-Village.mp3" loop />
+      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/Cobblestone-Village.mp3`} loop />
 
       {/* Paper Sound Effect (embedded base64, free SFX) */}
       <audio
         ref={paperSoundRef}
-        src="/pageturn.mp3"
+        src={`${process.env.PUBLIC_URL}/pageturn.mp3`}
       />
 
       <div className="map-container">
         {/* Map Image */}
-        <img src="/map2.jpg" alt="map" className="map-img" />
+        <img src={`${process.env.PUBLIC_URL}/map2.jpg`} alt="map" className="map-img" />
 
         {/* Station Buttons */}
         {stations.map((station) => (

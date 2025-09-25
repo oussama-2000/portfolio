@@ -139,7 +139,7 @@ const Education = ({onClose}) => {
               </div>
             </div>
               <img
-                src="/projects/13.png"
+                src={`${process.env.PUBLIC_URL}/projects/13.png`}
                 alt="NTIC School"
                 style={styles.schoolImg}
               />
@@ -168,7 +168,7 @@ const Education = ({onClose}) => {
               </div>
             </div>
               <img
-                src="/projects/OFPPT-Maroc.jpg"
+                src={`${process.env.PUBLIC_URL}/projects/OFPPT-Maroc.jpg`}
                 alt="NTIC School"
                 style={styles.schoolImg}
               />
@@ -195,7 +195,7 @@ const Education = ({onClose}) => {
               </div>
             </div>
               <img
-                src="/projects/saadiyin.png"
+                src={`${process.env.PUBLIC_URL}/projects/saadiyin.png`}
                 alt="Lycee Saadyin"
                 style={styles.schoolImg}
               />
@@ -220,7 +220,7 @@ const Education = ({onClose}) => {
             </p>
           </div>
             <img
-              src="/projects/allal.png"
+              src={`${process.env.PUBLIC_URL}/projects/allal.png`}
               alt="Lycee Allal Ben Abdellah"
             style={styles.schoolImg}
             />
