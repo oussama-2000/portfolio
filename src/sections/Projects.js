@@ -3,6 +3,65 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
+    title: "AI-powered mini Wikipedia",
+    date: "Sep 2025 - Oct 2025",
+    description: (
+      <div>
+        I created this MVP to better understand how AI models interact with
+        scientific data and how information retrieval and generation systems
+        work together similar to how a mini Wikipedia powered by AI would
+        function.
+        <ul>
+          <li>
+            The search operation might seem a bit heavy that’s because I used
+            free, open-source AI models and ran everything locally on my
+            CPU-based setup (no GPU).
+          </li>
+          <li>
+            It was a great opportunity to explore the full pipeline and really
+            understand how it all works behind the scenes.
+          </li>
+          <li>This project helped me deepen my knowledge in:</li>
+          <ul>
+            <li>
+              Retrieval-Augmented Generation (RAG){" "}
+              <a href="https://lnkd.in/dyPawMFv" target="_blank">
+                learn more
+              </a>
+            </li>
+            <li>
+              Embedding databases (like Qdrant){" "}
+              <a href="https://lnkd.in/d3cWVfe9" target="_blank">
+                learn more
+              </a>
+            </li>
+            <li>Backend integration with Flask</li>
+            <li>Practical model deployment</li>
+          </ul>
+          <li>
+            It’s just the beginning ,I’m planning to optimize performance and
+            experiment with faster inference soon.
+          </li>
+        </ul>
+      </div>
+    ),
+
+    fdescription:
+      "This MVP is a Flask-based AI document search system that indexes scientific books(PDFs) into a local vector store. It allows natural language queries and retrieves context-aware answers using free open-source models and CPU processing.",
+    skills: [
+      "Machine Learning Integration",
+      "Vector Databases (Qdrant)",
+      "Natural Language Processing (NLP)",
+      "Flask",
+      "docker",
+    ],
+    images: [
+      `${process.env.PUBLIC_URL}/projects/w1.png`,
+      `${process.env.PUBLIC_URL}/projects/MVP.mp4`,
+      `${process.env.PUBLIC_URL}/projects/RAG.jpeg`,
+    ],
+  },
+  {
     title: "ORIX",
     date: "Aug 2025 - Aug 2025",
     description:
@@ -149,8 +208,8 @@ const Projects = ({ onClose }) => {
     },
     closeMBtn: {
       position: "absolute",
-      top: isMobile ?"10px" : "5vh",
-      right: isMobile ?"10px" : "5vw",
+      top: isMobile ? "10px" : "5vh",
+      right: isMobile ? "10px" : "5vw",
       background: "#92400e",
       color: "#fff",
       border: "none",
@@ -364,20 +423,36 @@ const Projects = ({ onClose }) => {
                 ))}
               </div>
 
-              {/* Images */}
+              {/* Media (Images or Videos) */}
               <div style={styles.projectImages}>
-                {selected.images.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt={`${selected.title} ${i}`}
-                    style={styles.thumb}
-                    onClick={() => {
-                      setGalleryOpen(true);
-                      setCurrentImage(i);
-                    }}
-                  />
-                ))}
+                {selected.images.map((media, i) => {
+                  const isVideo = media.match(/\.(mp4|webm|ogg)$/i); // check file extension
+
+                  return isVideo ? (
+                    <video
+                      key={i}
+                      src={media}
+                      // controls
+                      muted
+                      style={{ ...styles.thumb }}
+                      onClick={() => {
+                        setGalleryOpen(true);
+                        setCurrentImage(i);
+                      }}
+                    />
+                  ) : (
+                    <img
+                      key={i}
+                      src={media}
+                      alt={`${selected.title} ${i}`}
+                      style={styles.thumb}
+                      onClick={() => {
+                        setGalleryOpen(true);
+                        setCurrentImage(i);
+                      }}
+                    />
+                  );
+                })}
               </div>
               {selected.link && (
                 <a
@@ -404,17 +479,38 @@ const Projects = ({ onClose }) => {
             exit={{ opacity: 0 }}
             onClick={() => setGalleryOpen(false)}
           >
-            <motion.img
-              key={currentImage}
-              src={selected.images[currentImage]}
-              alt="gallery"
-              style={styles.galleryImage}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 150, damping: 20 }}
-              onClick={(e) => e.stopPropagation()}
-            />
+            {(() => {
+              const currentMedia = selected.images[currentImage];
+              const isVideo = currentMedia.match(/\.(mp4|webm|ogg)$/i);
+
+              return isVideo ? (
+                <motion.video
+                  key={currentImage}
+                  src={currentMedia}
+                  controls
+                  autoPlay
+                  muted
+                  style={styles.galleryImage}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                  onClick={(e) => e.stopPropagation()}
+                />
+              ) : (
+                <motion.img
+                  key={currentImage}
+                  src={currentMedia}
+                  alt="gallery"
+                  style={styles.galleryImage}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                  onClick={(e) => e.stopPropagation()}
+                />
+              );
+            })()}
 
             {/* Nav buttons */}
             <span
