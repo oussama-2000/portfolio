@@ -57,13 +57,13 @@ const AboutMe = ({ onClose }) => {
       fontWeight: "bold",
       cursor: "pointer",
       zIndex: 10,
-      display: isMobile ? "flex" : "none",
+      // display: isMobile ? "flex" : "none",
       justifyContent: "center",
       alignItems: "center",
     },
     header: {
       textAlign: "center",
-      marginBottom: "1.5rem",
+      marginBottom: "7rem",
     },
     headerText: {
       fontFamily: "UnifrakturCook ,cursive",
@@ -90,7 +90,7 @@ const AboutMe = ({ onClose }) => {
     : `" text image"`,    // desktop → image left, text right
     },
     infoRow: {
-      fontSize: "clamp(0.9rem, 1.8vw, 1.1rem)",
+      fontSize: "clamp(0.9rem, 1.8vw, 1.5rem)",
       marginBottom: "0.5rem",
       lineHeight: 1.5,
       fontFamily: "Caveat, cursive",
@@ -100,8 +100,8 @@ const AboutMe = ({ onClose }) => {
     },
     photoPlaceholder: {
       padding: "5px",
-      width: "min(50vw, 200px)",
-      height: "min(50vw, 200px)",
+      width: "min(50vw, 300px)",
+      height: "min(50vw, 300px)",
       backgroundColor: "#fde68a",
       border: "2px solid #92400e",
       margin: "0 auto 1rem auto",
@@ -111,6 +111,9 @@ const AboutMe = ({ onClose }) => {
       flexDirection: "column",
     },
     barcode: {
+      position:"absolute",
+      top:"90%",
+      left:"45%",
       display: "flex",
       justifyContent: "center",
       gap: "2px",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 const Experience = ({ onClose }) => {
   const isMobile = window.innerWidth <= 768;
@@ -27,18 +27,18 @@ const Experience = ({ onClose }) => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      
       width:isMobile? "100%" :"80vw",
       height: "100%",
     },
     document: {
       backgroundColor: "#fef3c7",
+      // backgroundColor:"red",
       border: "4px solid #92400e",
       position: "relative",
       transform:isMobile ? "0deg" : "rotate(1deg)",
       boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)",
     //   width: "100%",
-      height:isMobile? "100%": "90vh",
+      height:isMobile? "100%": "80vh",
       overflowY: "hidden",
       borderRadius: "8px",
     },
@@ -87,7 +87,7 @@ const Experience = ({ onClose }) => {
     },
    
     closeBtn: {
-        display:isMobile ? "block" : "none",
+        // display:isMobile ? "block" : "none",
       position: "absolute",
       top: "10px",
       right: "10px",
@@ -103,7 +103,7 @@ const Experience = ({ onClose }) => {
     },
     header: {
       textAlign: "center",
-      marginBottom: "1.5rem",
+      marginBottom: "7rem",
     },
     headerText: {
       fontFamily: "UnifrakturCook ,cursive",
@@ -118,17 +118,18 @@ const Experience = ({ onClose }) => {
       color: "#92400e",
       display: "flex",
       justifyContent: "space-between",
-      flexWrap: "wrap",
+      flexWrap: "wrap",    
     },
     infoRow: {
-      fontSize: isMobile ? "0.8rem" : "1rem",
+      fontSize: isMobile ? "0.8rem" : "1.1rem",
       marginBottom: "0.3rem",
       lineHeight: 1.4,
       textAlign: "left",
+      lineSpacing:"200px",
     },
     logoBox: {
-      width: isMobile ? "50px" : "80px",
-      height: isMobile ? "50px" : "80px",
+      width: isMobile ? "50px" : "110px",
+      height: isMobile ? "50px" : "110px",
       border: "2px solid #92400e",
       marginBottom: "1rem",
       display: "flex",

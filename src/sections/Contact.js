@@ -12,133 +12,131 @@ const Contact = ({onClose}) => {
 
 
   const styles = {
-  newspaperContact: {
-    width: isMobile ?"90vw" : "80vw",
-    maxHeight:"95vh",
+    newspaperContact: {
+      width: isMobile ? "90vw" : "70vw",
+      maxHeight: "95vh",
+    },
 
-  },
+    subHeadline: {
+      fontSize: isMobile ? "25px" : "35px",
+      textAlign: "center",
+      fontStyle: "italic",
+      marginBottom: isMobile ? "1rem" : "2.2rem",
+      color: "whitesmoke",
+    },
 
-  subHeadline: {
-    fontSize: isMobile ? "25px" : "30px",
-    textAlign: "center",
-    fontStyle: "italic",
-    marginBottom: isMobile ? "1rem" : "2rem",
-    color: "whitesmoke",
-  },
+    letterContainer: {
+      display: "flex",
+      gap: isMobile ? "0.5rem" : "2.2rem",
+      flexWrap: "wrap",
+      flexDirection: isMobile ? "column-reverse" : "row",
+    },
 
-  letterContainer: {
-    display: "flex",
-    gap:isMobile ?"0.5rem" :"2rem",
-    flexWrap: "wrap",
-    flexDirection:isMobile ?"column-reverse" :"row"
-  },
+    letterForm: {
+      flex: 1,
+      maxWidth: !isMobile ?"25vw" :null  ,
+    },
 
-  letterForm: {
-    flex: 1,
-  },
+    editorNote: {
+      flex: 1,
+      height: "fit-content",
+      
+    },
 
-  editorNote: {
-    flex: 1,
-    height:"fit-content"
-  },
+    label: {
+      color: "whitesmoke",
+    },
 
-  label: {
-    color: "whitesmoke",
-  },
+    letterFormTitle: {
+      marginBottom: isMobile ? "0.5rem" : "1rem",
+      fontSize: "1.2rem",
+    },
 
-  // Form styles
-  letterFormTitle: {
-    marginBottom:isMobile ?"0.5rem" :"1rem",
-    fontSize: "1.2rem",
-  },
+    letterFormWrapper: {
+      display: "flex",
+      flexDirection: "column",
+    },
 
-  letterFormWrapper: {
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  letterInput: {
-    marginBottom: "1rem",
-    padding: "0.7rem",
-    border: "1px solid #444",
-    fontFamily: "inherit",
-  },
-
-  letterTextarea: {
-    marginBottom: "1rem",
-    padding: "0.7rem",
-    border: "1px solid #444",
-    fontFamily: "inherit",
-  },
-
-  letterButton: {
-    background: "#222",
-    color: "#fff",
-    padding: "0.7rem",
-    border: "none",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
-
-  letterButtonHover: {
-    background: "#555",
-  },
-
-  // Letter preview
-  letterPaper: {
-    background:'#f9f3df',
-    padding: isMobile ?"0.5rem":"1.5rem 0.5rem",
-    boxShadow:
-      "8px 8px 3px #0000006c, inset rgba(0, 0, 0, 0.429) 5px 5px 20px 0px",
-    height:isMobile?"300px" : "65vh",
-    fontFamily: '"Caveat", cursive',
-    overflowY:"auto"
-  },
-
-  letterHeading: {
-    marginBottom:isMobile ?"0.5rem" :"1rem",
-    marginLeft: 0,
-    fontStyle: "italic",
-    fontSize: isMobile ? " 1rem" :"1.3rem",
-    textAlign: "left",
-  },
-
-  letterBody: {
-    marginBottom: "2rem",
-    lineHeight:isMobile ? "1.2" : "1.5",
-    fontSize:isMobile ? "1.2rem" : "1.5rem",
-  },
-
-  letterSignature: {
-    fontFamily: '"Caveat", cursive',
-    fontSize: "1.2rem",
-    textAlign: "right",
-  },
-
-  letterMeta: {
-    marginTop: "1rem",
-    fontSize: "0.85rem",
-    color: "#444",
-    textAlign: "left",
-  },
-  inputs:{
+    letterInput: {
       marginBottom: "1rem",
-  padding:" 0.7rem",
-  border: "1px solid #444",
-  fontFamily: "inherit",
+      padding: "0.7rem",
+      border: "1px solid #444",
+      fontFamily: "inherit",
+    },
 
-  },
-  formBottom:{
-      background:" #222",
-  color: "#fff",
-  padding:" 0.7rem",
-  border: "none",
-  cursor: "pointer",
-  transition: "0.3s",
+    letterTextarea: {
+      marginBottom: "1rem",
+      padding: "0.7rem",
+      border: "1px solid #444",
+      fontFamily: "inherit",
+    },
 
-  },
-  
-      closeBtn: {
+    letterButton: {
+      background: "#222",
+      color: "#fff",
+      padding: "0.7rem",
+      border: "none",
+      cursor: "pointer",
+      transition: "0.3s",
+    },
+
+    letterButtonHover: {
+      background: "#555",
+    },
+
+    // Letter preview
+    letterPaper: {
+      background: "#f9f3df",
+      padding: isMobile ? "0.5rem" : "1.7rem 1.7rem",
+      boxShadow:
+        "8px 8px 3px #0000006c, inset rgba(0, 0, 0, 0.429) 5px 5px 20px 0px",
+      height: isMobile ? "300px" : "65vh",
+      fontFamily: '"Caveat", cursive',
+      overflowY: "auto",
+    },
+
+    letterHeading: {
+      marginBottom: isMobile ? "0.5rem" : "1.5rem",
+      marginLeft: 0,
+      fontStyle: "italic",
+      fontSize: isMobile ? " 1rem" : "1.5rem",
+      textAlign: "left",
+    },
+
+    letterBody: {
+      marginBottom: "2rem",
+      lineHeight: isMobile ? "1.2" : "1.7",
+      fontSize: isMobile ? "1.2rem" : "1.7rem",
+    },
+
+    letterSignature: {
+      fontFamily: '"Caveat", cursive',
+      fontSize: "1.2rem",
+      textAlign: "right",
+    },
+
+    letterMeta: {
+      marginTop: "1rem",
+      fontSize: isMobile ? "0.85rem" : "1.1rem",
+      color: "#444",
+      textAlign: "left",
+    },
+    inputs: {
+      marginBottom: "1rem",
+      padding: " 0.7rem",
+      border: "1px solid #444",
+      fontFamily: "inherit",
+    },
+    formBottom: {
+      background: " #222",
+      color: "#fff",
+      padding: " 0.7rem",
+      border: "none",
+      cursor: "pointer",
+      transition: "0.3s",
+    },
+
+    closeBtn: {
       position: "absolute",
       top: "10px",
       right: "10px",
@@ -152,11 +150,11 @@ const Contact = ({onClose}) => {
       fontWeight: "bold",
       cursor: "pointer",
       zIndex: 10,
-      display: isMobile ? "flex" : "none",
+      // display: isMobile ? "flex" : "none",
       justifyContent: "center",
       alignItems: "center",
     },
-};
+  };
 
 
   const handleChange = (e) => {
@@ -185,7 +183,6 @@ const Contact = ({onClose}) => {
 
   return (
     <motion.div
-      // style={styles.document}
               initial={isMobile ? { opacity: 0 } : { y: -500, opacity: 0, rotate: -5 }}
         animate={isMobile ? { opacity: 1 } : { y: 0, opacity: 1, rotate: 1 }}
         transition={{ type: "spring", stiffness: 80, damping: 12, duration: 1.2 }}

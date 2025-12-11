@@ -82,7 +82,7 @@ export default function PortfolioMap() {
   return (
     <div className="map">
       {/* Background Music */}
-      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/Cobblestone-Village.mp3`} loop />
+      <audio ref={audioRef}  src={`${process.env.PUBLIC_URL}/Cobblestone-Village.mp3`} loop />
 
       {/* Paper Sound Effect (embedded base64, free SFX) */}
       <audio

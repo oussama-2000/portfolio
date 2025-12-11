@@ -1,7 +1,86 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { outline } from "three/examples/jsm/tsl/display/OutlineNode.js";
 
 const projects = [
+  {
+    title: "PharmaNear v1",
+    date: "Apr 2025 - Present",
+    description: (
+      <div>
+        Farmanear is a web application designed to simplify the process of
+        locating pharmacies and finding available medicines in real time. The
+        platform helps users quickly identify the nearest pharmacy that stocks
+        the medicine they need, eliminating the frustration of visiting multiple
+        pharmacies. On the other side, pharmacists can manage their inventory,
+        receive medicine requests, and stay connected with clients through an
+        intuitive dashboard.<br/><br/>
+        <strong>Features</strong>
+        <ul>
+          <li>Real-time map to locate nearby pharmacies</li>
+          <li>Medicine availability search</li>
+          <li>
+            Automated guidance to the closest pharmacy that has the requested
+            medicine
+          </li>
+          <li>Medicine request and notification system</li>
+          <li>
+            Pharmacy dashboard for managing stock, requests, and profile
+            settings
+          </li>
+          <li>CSV import/export for easy inventory management</li>
+        </ul>
+        <strong>Technologies Used:</strong>
+        <ul>
+          <li>Laravel, React,MUI, Postgresql </li>
+          <li>Leaflet Map API</li>
+          <li>REST APIs</li>
+        </ul>
+        <i>
+          Farmanear is currently in its first version, with upcoming
+          improvements planned for design, features, and map functionalities.
+        </i>
+      </div>
+    ),
+
+    fdescription:
+      "a fully secured Debian-based virtual machine following strict system administration standards. This project strengthened my skills in Linux administration, virtualization, system security, and network configuration",
+    skills: [
+      "Linux System Administration",
+      "Virtualization & Hypervisors ",
+      "SSH Configuration & Secure Access",
+      "Firewall Management ",
+      "Web Server Configuration (lighttpd)",
+    ],
+    images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`],
+  },
+  {
+    title: "Born2beroot",
+    date: "Nov 2025 - Nov 2025",
+    description: (
+      <div>
+        I built and configured a fully secured Debian-based virtual machine
+        following strict system administration standards. This project
+        strengthened my skills in Linux administration, virtualization, system
+        security, and network configuration. I implemented key components such
+        as LVM, LUKS encryption, SSH remote access, UFW firewall rules, password
+        policies, user management, cron monitoring, and service hardening. I
+        also deployed Lighttpd, MariaDB, PHP, and WordPress to create a
+        functional and secure web stack.
+      </div>
+    ),
+
+    fdescription:
+      "a fully secured Debian-based virtual machine following strict system administration standards. This project strengthened my skills in Linux administration, virtualization, system security, and network configuration",
+    skills: [
+      "Linux System Administration",
+      "Virtualization & Hypervisors ",
+      "SSH Configuration & Secure Access",
+      "Firewall Management ",
+      "Web Server Configuration (lighttpd)",
+    ],
+    images: [`${process.env.PUBLIC_URL}/projects/b1.jpeg`],
+  },
   {
     title: "AI-powered mini Wikipedia",
     date: "Sep 2025 - Oct 2025",
@@ -160,8 +239,18 @@ const Projects = ({ onClose }) => {
   const [selected, setSelected] = useState(null);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-
+  const [currentPage, setCurrentPage] = useState(0);//
   const isMobile = window.innerWidth <= 768;
+  const cardsPerPage = isMobile ? 1 : 3;//
+
+  const totalPages = Math.ceil(projects.length / cardsPerPage);//
+
+  const paginatedProjects = projects.slice(//
+    currentPage * cardsPerPage,//
+    currentPage * cardsPerPage + cardsPerPage//
+  );
+
+
 
   const dropVariants = {
     hidden: { y: -100, opacity: 0, rotate: -5 },
@@ -226,7 +315,7 @@ const Projects = ({ onClose }) => {
 
     cardImage: {
       width: "100%",
-      height: "200px",
+      height: "60%",
       objectFit: "cover",
     },
     cardBody: {
@@ -253,7 +342,7 @@ const Projects = ({ onClose }) => {
       background: "#fffbeb",
       border: "3px solid #92400e",
       borderRadius: "8px",
-      maxWidth: "800px",
+      maxWidth: "50vw",
       width: "100%",
       padding: "2rem",
       boxShadow: "0 25px 50px rgba(0,0,0,0.4)",
@@ -330,8 +419,13 @@ const Projects = ({ onClose }) => {
       cursor: "pointer",
       userSelect: "none",
       padding: "0.5rem 1rem",
-      background: "rgba(0,0,0,0.4)",
+      background: "transparent",
       borderRadius: "50%",
+      border:"none",
+      outline:"none",
+      // &&:hover{
+
+      // }
     },
     leftBtn: { left: "5%" },
     rightBtn: { right: "5%" },
@@ -353,7 +447,7 @@ const Projects = ({ onClose }) => {
           ✕
         </button>
 
-        {projects.map((project, index) => (
+        {paginatedProjects.map((project, index) => (
           <motion.div
             key={index}
             style={styles.card}
@@ -381,6 +475,47 @@ const Projects = ({ onClose }) => {
               </p>
             </div>
           </motion.div>
+        ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "1rem",
+          gap: "1rem",
+        }}
+      >
+        <button
+          onClick={() =>
+            setCurrentPage((p) => (p === 0 ? totalPages - 1 : p - 1))
+          }
+          style={{ ...styles.navBtn, ...styles.leftBtn }}
+        >
+          ‹
+        </button>
+
+        <button
+          onClick={() =>
+            setCurrentPage((p) => (p === totalPages - 1 ? 0 : p + 1))
+          }
+          style={{ ...styles.navBtn, ...styles.rightBtn }}
+        >
+          ›
+        </button>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}>
+        {Array.from({ length: totalPages }).map((_, i) => (
+          <span
+            key={i}
+            onClick={() => setCurrentPage(i)}
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              background: i === currentPage ? "#92400e" : "#d6d3d1",
+              cursor: "pointer",
+            }}
+          />
         ))}
       </div>
 
