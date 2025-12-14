@@ -52,7 +52,7 @@ const projects = [
       "Firewall Management ",
       "Web Server Configuration (lighttpd)",
     ],
-    images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`],
+    images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`,`${process.env.PUBLIC_URL}/projects/pharmanear.mp4`],
   },
   {
     title: "Born2beroot",
