@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import useState from "react";
 import emailjs from "emailjs-com";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const Contact = ({onClose}) => {
   const [formData, setFormData] = useState({

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import useState  from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { outline } from "three/examples/jsm/tsl/display/OutlineNode.js";
 
 const projects = [
   {
@@ -104,13 +103,13 @@ const projects = [
           <ul>
             <li>
               Retrieval-Augmented Generation (RAG){" "}
-              <a href="https://lnkd.in/dyPawMFv" target="_blank">
+              <a href="https://lnkd.in/dyPawMFv" target="_blank" rel="noreferrer">
                 learn more
               </a>
             </li>
             <li>
               Embedding databases (like Qdrant){" "}
-              <a href="https://lnkd.in/d3cWVfe9" target="_blank">
+              <a href="https://lnkd.in/d3cWVfe9" target="_blank" rel="noreferrer">
                 learn more
               </a>
             </li>

@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-// import "./Education.css";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const Education = ({ onClose }) => {
   const isMobile = window.innerWidth <= 768;
