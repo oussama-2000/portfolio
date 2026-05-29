@@ -1,4 +1,4 @@
-import useState from "react";
+import {useState, useEffect} from "react";
 import emailjs from "emailjs-com";
 import {motion} from "framer-motion";
 
@@ -8,7 +8,22 @@ const Contact = ({onClose}) => {
     email: "",
     message: "",
   });
-    const isMobile = window.innerWidth <= 768;
+  // const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
 
   const styles = {

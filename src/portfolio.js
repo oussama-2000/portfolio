@@ -82,7 +82,7 @@ export default function PortfolioMap() {
   return (
     <div className="map">
       {/* Background Music */}
-      <audio ref={audioRef}  src={`${process.env.PUBLIC_URL}/Cobblestone-Village.mp3`} loop />
+      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/Cobblestone-Village.mp3`} loop />
 
       {/* Paper Sound Effect (embedded base64, free SFX) */}
       <audio
@@ -155,7 +155,7 @@ export default function PortfolioMap() {
       </div>
 
       {/* Modal */}
-      {selected && (
+      {selected?.Component && (
         <div
           className="overlay"
           onClick={() => {
@@ -164,10 +164,12 @@ export default function PortfolioMap() {
           }}
         >
           <div className="dialog" onClick={(e) => e.stopPropagation()}>
-            <selected.Component onClose={() => {
-              playPaperSound();
-              setSelected(null);
-            }} />
+            {React.createElement(selected.Component, {
+              onClose: () => {
+                playPaperSound();
+                setSelected(null);
+              }
+            })}
           </div>
         </div>
       )}

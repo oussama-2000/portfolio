@@ -1,4 +1,4 @@
-import useState  from "react";
+import {useState, useEffect}  from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -239,8 +239,26 @@ const Projects = ({ onClose }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);//
-  const isMobile = window.innerWidth <= 768;
-  const cardsPerPage = isMobile ? 1 : 3;//
+  // const isMobile = window.innerWidth <= 768;
+  // const cardsPerPage = isMobile ? 1 : 3;//
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const cardsPerPage = isMobile ? 1 : 3;
 
   const totalPages = Math.ceil(projects.length / cardsPerPage);//
 
@@ -614,8 +632,8 @@ const Projects = ({ onClose }) => {
             onClick={() => setGalleryOpen(false)}
           >
             {(() => {
-              const currentMedia = selected.images[currentImage];
-              const isVideo = currentMedia.match(/\.(mp4|webm|ogg)$/i);
+              const currentMedia = selected?.images?.[currentImage];
+              const isVideo = currentMedia?.match(/\.(mp4|webm|ogg)$/i);
 
               return isVideo ? (
                 <motion.video
