@@ -10,7 +10,7 @@ const Education = ({ onClose }) => {
       padding: isMobile ? "1rem" : "2rem",
 
       width: isMobile ? "90vw" : "80vw",
-      height: isMobile ? "95vh" : "70vh",
+      height: isMobile ? "95vh" : "80vh",
       overflowY: "auto",
       margin: isMobile ? "0" : "2rem auto",
       border: isMobile ? "5px double #000" : "10px double #000",
@@ -36,17 +36,6 @@ const Education = ({ onClose }) => {
       margin: "0.5rem 0 2rem 0",
     },
 
-    newspaperColumns: {
-      // display: "flex",
-      // gap: "2rem",
-    },
-
-    column: {
-      // display:  "flex",
-      // justifyContent: "space-around",
-      // gap: "10%",
-    },
-
     newspaperSection: {
       marginBottom: "4rem",
       display: "grid",
@@ -55,7 +44,7 @@ const Education = ({ onClose }) => {
     },
 
     sectionTitle: {
-      fontSize: isMobile ? "1rem" : "1.6rem",
+      fontSize: "clamp(1.2rem, 1.8vw, 2rem)",
       fontWeight: "bold",
       marginBottom: "1.5rem",
       fontFamily: '"Cinzel", serif',
@@ -65,7 +54,7 @@ const Education = ({ onClose }) => {
     sectionSubtitle: {
       fontStyle: "italic",
       marginBottom: "0.5rem",
-      fontSize: isMobile ? ".7rem" : "1.3rem",
+      fontSize: "clamp(0.9rem, 1.3vw, 1.6rem)",
     },
 
     schoolImg: {
@@ -73,6 +62,7 @@ const Education = ({ onClose }) => {
       height: "auto",
       border: "3px solid #000",
       filter: "sepia(60%) grayscale(40%)",
+      margin: "auto"
     },
     closeBtn: {
       position: "absolute",

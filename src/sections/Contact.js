@@ -8,7 +8,7 @@ const Contact = ({onClose}) => {
     email: "",
     message: "",
   });
-  // const isMobile = window.innerWidth <= 768;
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   useEffect(() => {
@@ -138,9 +138,11 @@ const Contact = ({onClose}) => {
     },
     inputs: {
       marginBottom: "1rem",
+      marginTop: "1rem",
       padding: " 0.7rem",
       border: "1px solid #444",
       fontFamily: "inherit",
+      background: "#f9f3df"
     },
     formBottom: {
       background: " #222",
@@ -165,7 +167,6 @@ const Contact = ({onClose}) => {
       fontWeight: "bold",
       cursor: "pointer",
       zIndex: 10,
-      // display: isMobile ? "flex" : "none",
       justifyContent: "center",
       alignItems: "center",
     },
@@ -207,7 +208,7 @@ const Contact = ({onClose}) => {
     <button style={styles.closeBtn} onClick={onClose}>
           ✕
         </button>
-      <p style={styles.subHeadline}>I’d love to hear from my you!</p>
+      <p style={styles.subHeadline}>I’d love to hear from you!</p>
 
       <div  style={styles.letterContainer}>
         <div style={styles.letterForm}>

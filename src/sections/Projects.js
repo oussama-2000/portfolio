@@ -1,4 +1,4 @@
-import {useState, useEffect}  from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -13,7 +13,7 @@ const projects = [
         the medicine they need, eliminating the frustration of visiting multiple
         pharmacies. On the other side, pharmacists can manage their inventory,
         receive medicine requests, and stay connected with clients through an
-        intuitive dashboard.<br/><br/>
+        intuitive dashboard.<br /><br />
         <strong>Features</strong>
         <ul>
           <li>Real-time map to locate nearby pharmacies</li>
@@ -43,15 +43,78 @@ const projects = [
     ),
 
     fdescription:
-      "a fully secured Debian-based virtual machine following strict system administration standards. This project strengthened my skills in Linux administration, virtualization, system security, and network configuration",
+      "Farmanear is a web application designed to simplify the process of locating pharmacies and finding available medicines in real time.",
     skills: [
-      "Linux System Administration",
-      "Virtualization & Hypervisors ",
-      "SSH Configuration & Secure Access",
-      "Firewall Management ",
-      "Web Server Configuration (lighttpd)",
+      "Full-Stack Development",
+      "REST API Design & Integration",
+      "Interactive Map Integration (Leaflet)",
+      "Authentication & User Management",
     ],
-    images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`,`${process.env.PUBLIC_URL}/projects/pharmanear.mp4`],
+    images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`, `${process.env.PUBLIC_URL}/projects/pharmanear.mp4`],
+  },
+  {
+    title: "Call-Me-Maybe",
+    date: "Apr 2026 – May 2026",
+    description: (
+      <div>
+        Call-Me-Maybe is a lightweight local LLM inference engine designed to convert natural language prompts into structured function calls using constrained decoding.
+        <br/>
+        The project uses Hugging Face models and implements a custom state-machine decoder to guarantee valid JSON generation while minimizing hallucinations and formatting errors.
+        <br/>
+        Instead of allowing the language model to freely generate output, deterministic JSON syntax is injected manually while the model is constrained to generate only semantic values such as:
+        <br/>
+        <ul>
+          <li>function names</li>
+          <li>numbers</li>
+          <li>strings</li>
+          <li>regex expressions</li>
+        </ul>
+        <br/>
+        The goal of the project is to explore how modern LLM inference systems work internally and how constrained decoding can improve reliability, speed, and structured generation.<br /><br />
+      </div>
+    ),
+
+    fdescription:
+      "Call-Me-Maybe is a lightweight local LLM inference engine designed to convert natural language prompts into structured function calls using constrained decoding.",
+    skills: [
+      "Understanding of Large Language Models (LLMs)",
+      "Artificial Intelligence & Machine Learning",
+      "Natural Language Processing (NLP)",
+      "LLM Inference & Decoding",
+      "AI Infrastructure & Tooling",
+      "Problem Solving & Optimization"
+    ],
+    images: [`${process.env.PUBLIC_URL}/projects/llm.jpg`],
+  },
+  {
+    title: "A-Maze-ing",
+    date: "Jan 2026 – Feb 2026",
+    description: (
+      <div>
+        A-Maze-ing is a python project that generates and displays mazes using maze generation algorithms. <br />
+        The goal of the project is to explore algorithmic maze construction while respecting structural constraints
+        The project implements different maze generation strategies such as Depth-First Search and Breadth-First Search to solve the maze and provide the shorteast path. <br />
+        In addition we add different bounuses part like Play Mode with more options.
+        <br /><br />
+        <strong>Project Goals</strong>
+        <ul>
+          <li>Understand and implement graph traversal algorithms</li>
+          <li>Compare different procedural generation techniques</li>
+          <li>Write clean, typed Python code (mypy compliant)</li>
+          <li>Provide a fully automated Makefile workflow</li>
+          <li> Package implement</li>
+        </ul>
+      </div>
+    ),
+
+    fdescription:
+      "A-Maze-ing is a python project that generates and displays mazes using maze generation algorithms.",
+    skills: [
+      "DFS algorithm",
+      "BFS algorithm",
+      "Packaging Design",
+    ],
+    images: [`${process.env.PUBLIC_URL}/projects/maze.png`],
   },
   {
     title: "Born2beroot",
@@ -239,8 +302,7 @@ const Projects = ({ onClose }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);//
-  // const isMobile = window.innerWidth <= 768;
-  // const cardsPerPage = isMobile ? 1 : 3;//
+
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -438,8 +500,8 @@ const Projects = ({ onClose }) => {
       padding: "0.5rem 1rem",
       background: "transparent",
       borderRadius: "50%",
-      border:"none",
-      outline:"none",
+      border: "none",
+      outline: "none",
       // &&:hover{
 
       // }
@@ -487,8 +549,8 @@ const Projects = ({ onClose }) => {
                 {typeof project.description === "string"
                   ? project.description.slice(0, 100) + "..."
                   : project.fdescription
-                  ? project.fdescription.slice(0, 100) + "..."
-                  : "Click to view details"}
+                    ? project.fdescription.slice(0, 100) + "..."
+                    : "Click to view details"}
               </p>
             </div>
           </motion.div>
@@ -562,7 +624,7 @@ const Projects = ({ onClose }) => {
               <div
                 style={{
                   textAlign: "left",
-                  fontSize: "clamp(0.9rem, 1.2vw, 1.4rem)",
+                  fontSize: "clamp(0.9rem, 1vw, 1.4rem)",
                 }}
               >
                 {selected.description}

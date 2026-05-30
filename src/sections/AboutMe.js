@@ -56,7 +56,6 @@ const AboutMe = ({ onClose }) => {
       fontWeight: "bold",
       cursor: "pointer",
       zIndex: 10,
-      // display: isMobile ? "flex" : "none",
       justifyContent: "center",
       alignItems: "center",
     },
@@ -80,7 +79,7 @@ const AboutMe = ({ onClose }) => {
       flexWrap: "wrap",
     },
     mainGrid: {
-      marginTop: "30px",
+      marginTop: "-30px",
       display: "grid",
       gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: isMobile? "0.5rem" :"1.5rem" ,
@@ -89,7 +88,7 @@ const AboutMe = ({ onClose }) => {
     : `" text image"`,    // desktop → image left, text right
     },
     infoRow: {
-      fontSize: "clamp(0.9rem, 1.8vw, 1.5rem)",
+      fontSize: "clamp(0.9rem, 1.2vw, 1.5rem)",
       marginBottom: "0.5rem",
       lineHeight: 1.5,
       fontFamily: "Caveat, cursive",
@@ -144,7 +143,7 @@ const AboutMe = ({ onClose }) => {
           <div style={styles.header}>
             <div style={styles.headerText}>ABOUT ME</div>
             <div style={styles.subHeader}>
-              <span>ID: OSS-2025</span>
+              <span>ID: OSS-2000</span>
               <span>STATUS: Open to opportunities</span>
             </div>
           </div>
