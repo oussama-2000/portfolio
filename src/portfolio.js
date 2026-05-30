@@ -92,7 +92,7 @@ export default function PortfolioMap() {
 
       <div className="map-container">
         {/* Map Image */}
-        <img src={`${process.env.PUBLIC_URL}/map2.jpg`} alt="map" className="map-img" />
+        <img src={`${process.env.PUBLIC_URL}/map.jpg`} alt="map" className="map-img" />
 
         {/* Station Buttons */}
         {stations.map((station) => (
