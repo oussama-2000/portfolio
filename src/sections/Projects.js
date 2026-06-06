@@ -53,6 +53,23 @@ const projects = [
     images: [`${process.env.PUBLIC_URL}/projects/ph1.jpeg`, `${process.env.PUBLIC_URL}/projects/pharmanear.mp4`],
   },
   {
+    title: "Fly-in",
+    date: "Mar 2026 – Apr 2026",
+    description: (
+      <div>
+        Fly-in is a simulation project where drones navigate through a network of zones to reach a destination while respecting constraints such as zone capacity, restricted areas, and connection limits.<br /><br />
+      </div>
+    ),
+
+    fdescription:
+      "Fly-in is a simulation project where drones navigate through a network of zones to reach a destination while respecting constraints such as zone capacity, restricted areas, and connection limits.",
+    skills: [
+      "Graph Theory",
+      "Dijkstra algorithm"
+    ],
+    images: [`${process.env.PUBLIC_URL}/projects/fly-in.png`],
+  },
+  {
     title: "Call-Me-Maybe",
     date: "Apr 2026 – May 2026",
     description: (
@@ -421,12 +438,14 @@ const Projects = ({ onClose }) => {
       background: "#fffbeb",
       border: "3px solid #92400e",
       borderRadius: "8px",
-      maxWidth: "50vw",
+      // maxWidth: "50vw",
       width: "100%",
+      height: isMobile ? "90%": "auto",
       padding: "2rem",
       boxShadow: "0 25px 50px rgba(0,0,0,0.4)",
-      maxHeight: "90vh",
+      // maxHeight: "90vh",
       overflowY: "auto",
+      // width: 
     },
     closeBtn: {
       position: "absolute",
@@ -498,13 +517,11 @@ const Projects = ({ onClose }) => {
       cursor: "pointer",
       userSelect: "none",
       padding: "0.5rem 1rem",
-      background: "transparent",
-      borderRadius: "50%",
+      background: "#4a2d2d7e",
+      borderRadius: "20%",
       border: "none",
       outline: "none",
-      // &&:hover{
-
-      // }
+      fontWeight: "bold",
     },
     leftBtn: { left: "5%" },
     rightBtn: { right: "5%" },
